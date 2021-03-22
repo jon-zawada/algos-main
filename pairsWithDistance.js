@@ -72,7 +72,19 @@ function findPairsWithGivenDifference(arr, k) {
   return result;
 }
 
-
+function findPairsWithGivenDifference(arr, k) {
+  let result = [];
+  let stor = {};
+  for(let num of arr) {
+    stor[num - k] = num;
+  }
+  for(let num of arr) {
+    if(stor[num] !== undefined) {
+      result.push([stor[num], num]);
+    }
+  }
+  return result;
+}
 
 //console.log(findPairsWithGivenDifference([0,-1,-2, 2, 1], 1))
 
